@@ -1,0 +1,67 @@
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+<title>Test</title>
+<script>
+async function getData(url = '') {
+  const response = await fetch(url, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'text/plain',
+      'Accept': 'text/plain'
+    },
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer'
+  });
+  return response.text();
+}
+
+function test(){
+	text = ''
+	getData('http://10.6.166.1/user/system/dataviews/globaltext.xml').then(value => new window.DOMParser().parseFromString(value, "text/xml")).then(data => data.getElementsByTagName('tag')).then(data => {for (let i=0; i < data.length; i++){let row = `${data[i].attributes['name'].value} -- ${data[i].childNodes[1].innerHTML}`; let content = document.getElementById(['content']); content.innerHTML+=`${row}</br>`}})
+}
+
+async function postData(url = '') {
+  let globaltext = document.getElementById('globaltext').value;
+  let globaltext1 = globaltext.substring(0, globaltext.length/2);
+  let globaltext2 = globaltext.substring(globaltext.length/2);
+  const response = await fetch(url, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'text/plain',
+      'Accept': 'text/plain'
+    },
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+    body: `<?xml version="1.0"?>
+<?xml-stylesheet href="/dataview/dataview.xsl" type="text/xsl"?>
+<view xmlns="http://www.rockwellautomation.com/technologies/data_access/data_views/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.rockwellautomation.com/technologies/data_access/data_views/1.0/ /schema/dataview.xsd" 
+xmlns:cip="http://www.rockwellautomation.com/technologies/data_access/data_types/1.0/" name="GlobalText" description="">
+	<tag name="Web_GlobalText1" valueType="cip:dt_STRINGI" path="1,0" display="String" access="admin">
+		<value xsi:type="cip:dt_STRINGI">${globaltext1}</value>
+	</tag>
+	<tag name="Web_GlobalText2" valueType="cip:dt_STRINGI" path="1,0" display="String" access="admin">
+		<value xsi:type="cip:dt_STRINGI">${globaltext2}</value>
+	</tag>
+</view>
+`
+  });
+  return response.text();
+}
+function sendXML(){
+	postData('http://10.6.166.1/user/system/dataviews/globaltext.xml').then((value) => {
+  	location.reload();
+	});
+}
+</script>
+</head>
+<body onload='test()'>
+<h2>Main Screen</h2>
+<div id="content"></div>
+<input id='globaltext' maxlength="139" name="global text" size="120" value="globaltext"/>
+<button onclick="sendXML()">SUBMIT</button>
+</body>
+</html>

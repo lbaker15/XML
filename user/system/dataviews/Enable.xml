@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/dataview/dataview.xsl" type="text/xsl"?>
+<view xmlns="http://www.rockwellautomation.com/technologies/data_access/data_views/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rockwellautomation.com/technologies/data_access/data_views/1.0/ /schema/dataview.xsd" xmlns:cip="http://www.rockwellautomation.com/technologies/data_access/data_types/1.0/" name="Enable" description="">
+		<tag name="Web_Medical_En" valueType="cip:dt_BOOL" path="1,0" display="String" access="admin">
+		<value xsi:type="cip:dt_BOOL">FALSE</value>
+	</tag>
+	<tag name="Web_Electric_En" valueType="cip:dt_BOOL" path="1,0" display="String" access="admin">
+		<value xsi:type="cip:dt_BOOL">FALSE</value>
+	</tag>
+	<tag name="Web_Fire_En" valueType="cip:dt_BOOL" path="1,0" display="String" access="admin">
+		<value xsi:type="cip:dt_BOOL">FALSE</value>
+	</tag>
+	<tag name="Web_Tornado_En" valueType="cip:dt_BOOL" path="1,0" display="String" access="admin">
+		<value xsi:type="cip:dt_BOOL">FALSE</value>
+	</tag>
+	<tag name="Web_Messaging_En" valueType="cip:dt_BOOL" path="1,0" display="String" access="admin">
+		<value xsi:type="cip:dt_BOOL">TRUE</value>
+	</tag>
+	<tag name="Test_ModeOnInd" valueType="cip:dt_BOOL" path="1,0" display="String" access="read">
+		<value xsi:type="cip:dt_BOOL">FALSE</value>
+	</tag>
+	<tag name="Clock.Hour" valueType="cip:dt_DINT" path="1,0" display="Decimal" access="read">
+		<value xsi:type="cip:dt_DINT">22</value>
+	</tag>
+	<tag name="CorrectedClockTime" valueType="cip:dt_DINT" path="1,0" display="Decimal" access="read">
+		<value xsi:type="cip:dt_DINT">16</value>
+	</tag>
+</view>

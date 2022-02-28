@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Test</title>
+</head>
+<body>
+<script>
+var TRIGGER = "TRUE"
+async function postData(url = '') {
+  const response = await fetch(url, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'text/plain',
+      'Accept': 'text/plain'
+    },
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+    body: `<?xml version="1.0"?><?xml-stylesheet href="/dataview/dataview.xsl" type="text/xsl"?><view xmlns="http://www.rockwellautomation.com/technologies/data_access/data_views/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rockwellautomation.com/technologies/data_access/data_views/1.0/ /schema/dataview.xsd" xmlns:cip="http://www.rockwellautomation.com/technologies/data_access/data_types/1.0/" name="test" description="test"><tag name="Trigger" valueType="cip:dt_BOOL" path="1,0" display="String" access="admin"><value xsi:type="cip:dt_BOOL">${TRIGGER}</value></tag><tag name="Text_Michael" valueType="cip:dt_STRINGI" path="1,0" display="String" access="admin"><value xsi:type="cip:dt_STRINGI">To:7632809859@vtext.com From:Alerts@MorrisPKG.com</value></tag></view>`
+  });
+  return response.text();
+}
+function toggleTrigger(){
+	if (TRIGGER == "TRUE"){
+		TRIGGER = "FALSE"
+	}
+  else {
+		TRIGGER = "TRUE"
+	}
+	postData('http://localhost:8000/user/system/dataviews/Enable.xml').then((value) => {
+  	console.log(value);
+	});
+}
+(async function() {
+  let data = await fetch('http://localhost:8000/user/system/dataviews/Enable.xml')
+  console.log(data)
+})()
+
+</script>
+<button onclick="toggleTrigger()">TOGGLE</button>
+<div id="root">
+
+</div>
+</body>
+</html>

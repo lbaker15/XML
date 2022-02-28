@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/dataview/dataview.xsl" type="text/xsl"?>
+<view xmlns="http://www.rockwellautomation.com/technologies/data_access/data_views/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rockwellautomation.com/technologies/data_access/data_views/1.0/ /schema/dataview.xsd" xmlns:cip="http://www.rockwellautomation.com/technologies/data_access/data_types/1.0/" name="GlobalText" description="">
+		<tag name="Web_GlobalSend" valueType="cip:dt_BOOL" path="1,0" display="String" access="admin">
+		<value xsi:type="cip:dt_BOOL">FALSE</value>
+	</tag>
+	<tag name="Web_GlobalSendEnd" valueType="cip:dt_BOOL" path="1,0" display="String" access="admin">
+		<value xsi:type="cip:dt_BOOL">FALSE</value>
+	</tag>
+	<tag name="GlobalTextBody" valueType="cip:dt_STRINGI" path="1,0" display="String" access="admin" error="Couldn't read tag!">
+		<value xsi:nil="true"/>
+	</tag><tag name="Web_GlobalText1" valueType="cip:dt_STRINGI" path="1,0" display="String" access="admin">
+		<value xsi:type="cip:dt_STRINGI">BONCHON ALERT! Bonchon has been detected in the building. Please </value>
+	</tag>
+	<tag name="Web_GlobalText2" valueType="cip:dt_STRINGI" path="1,0" display="String" access="admin">
+		<value xsi:type="cip:dt_STRINGI">proceed to Tracys office. Todays Bonchons has been brought to you by GERRY</value>
+	</tag>
+	<tag name="Serv1_Text.DATA[0]" valueType="cip:dt_SINT" path="1,0" display="Decimal" access="admin">
+		<value xsi:type="cip:dt_SINT">69</value>
+	</tag>
+	<tag name="Serv1_Text.DATA[1]" valueType="cip:dt_SINT" path="1,0" display="Decimal" access="admin">
+		<value xsi:type="cip:dt_SINT">108</value>
+	</tag>
+	<tag name="Serv1_Text.DATA[2]" valueType="cip:dt_SINT" path="1,0" display="Decimal" access="admin">
+		<value xsi:type="cip:dt_SINT">101</value>
+	</tag>
+
+</view>
